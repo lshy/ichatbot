@@ -8,7 +8,8 @@ public class IchatbotApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(IchatbotApplication.class, args);
-        System.out.println("Start i Chatbot!");
+        System.out.println("Start I Chatbot!");
+
     }
 
 }
