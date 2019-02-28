@@ -1,10 +1,9 @@
 package com.kakao.ichatbot.response.componentType;
 
 
+import com.fasterxml.jackson.annotation.JsonRootName;
 import com.kakao.ichatbot.response.componentType.exception.IllegalStringLengthException;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 @Data
 public class SimpleText{
@@ -23,6 +22,18 @@ public class SimpleText{
     private void assertText(String text) {
             if (text.length() > MAX_TEXT_COUNT)
                 throw new IllegalStringLengthException(MAX_TEXT_COUNT);
+    }
 
+    @Getter
+    @NoArgsConstructor
+    public static class Adapter{
+
+        private SimpleText simpleText;
+
+        public static Adapter of(SimpleText simpleText){
+            Adapter instance = new Adapter();
+            instance.simpleText = simpleText;
+            return instance;
+        }
     }
 }

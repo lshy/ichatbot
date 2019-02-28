@@ -1,9 +1,7 @@
 package com.kakao.ichatbot.response.componentType;
 
 import com.kakao.ichatbot.response.componentType.exception.IllegalStringLengthException;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 @Data
 public class SimpleImage{
@@ -29,5 +27,18 @@ public class SimpleImage{
     private void assertAltText(String altText) {
         if (altText.length() > MAX_TEXT_COUNT)
             throw new IllegalStringLengthException(MAX_TEXT_COUNT);
+    }
+
+    @Getter
+    @NoArgsConstructor
+    public static class Adapter{
+
+        private SimpleImage simpleImage;
+
+        public static Adapter of(SimpleImage simpleImage){
+            Adapter instance = new Adapter();
+            instance.simpleImage = simpleImage;
+            return instance;
+        }
     }
 }

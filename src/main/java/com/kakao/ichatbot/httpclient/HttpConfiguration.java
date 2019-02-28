@@ -44,7 +44,7 @@ public class HttpConfiguration {
 
         RestTemplate restTemplate = new RestTemplate(factory);
 
-        restTemplate.getMessageConverters().add(0, converter);
+        restTemplate.getMessageConverters().add(converter);
 
         return restTemplate;
     }

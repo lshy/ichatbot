@@ -3,13 +3,13 @@ package com.kakao.ichatbot.example;
 import com.kakao.ichatbot.request.SkillPayload;
 import com.kakao.ichatbot.response.SkillResponse;
 import com.kakao.ichatbot.response.SkillTemplate;
-import com.kakao.ichatbot.response.componentType.ISkillComponent;
 import com.kakao.ichatbot.response.componentType.SimpleText;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -43,14 +43,14 @@ public class TestController {
 
 
         URI uri = linkTo(TestController.class).toUri();
-        List<ISkillComponent> outputs = Stream.of(
-                SimpleText.builder().text("hello my name is Yoongi!").build()
-        ).collect(Collectors.toList());
+
+        SimpleText simpleText = SimpleText.builder().text("hello my name is Yoongi!").build();
+        List<Object> list = Collections.singletonList( SimpleText.Adapter.of(simpleText));
 
         //body의 SkillResponse는 Service에서 구현 후 반환
         SkillResponse skillResponse = SkillResponse.builder()
                 .template(SkillTemplate.builder()
-                        .outputs(outputs)
+                        .outputs(list)
                         .build()).build();
 
         return ResponseEntity.created(uri).body(skillResponse);
@@ -62,10 +62,10 @@ public class TestController {
 
 
         URI uri = linkTo(TestController.class).toUri();
-        List<ISkillComponent> outputs = Stream.of(
-                SimpleText.builder().text(skillPayload.getAction().getName()).build()
-        ).collect(Collectors.toList());
-      
+        List<Object> outputs = Stream.of(
+                SimpleText.builder().text(skillPayload.getAction().getName()).build())
+                .collect(Collectors.toList());
+
         //body의 SkillResponse는 Service에서 구현 후 반환
         SkillResponse skillResponse = SkillResponse
                 .builder()

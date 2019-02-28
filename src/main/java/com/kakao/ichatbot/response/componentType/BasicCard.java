@@ -6,6 +6,8 @@ import com.kakao.ichatbot.response.componentType.exception.IllegalComponentCount
 import com.kakao.ichatbot.response.componentType.exception.IllegalStringLengthException;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
@@ -61,6 +63,19 @@ public class BasicCard{
         private void assertButtons(List<Button> buttons) {
             if (Optional.ofNullable(buttons).orElseThrow(IllegalArgumentException::new).size() > MAX_BUTTON_COUNT)
                 throw new IllegalComponentCountException(MAX_BUTTON_COUNT);
+        }
+    }
+
+    @Getter
+    @NoArgsConstructor
+    public static class Adapter{
+
+        private BasicCard basicCard;
+
+        public static Adapter of(BasicCard basicCard){
+            Adapter instance = new Adapter();
+            instance.basicCard = basicCard;
+            return instance;
         }
     }
 

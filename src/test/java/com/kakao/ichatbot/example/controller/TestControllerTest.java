@@ -39,6 +39,57 @@ public class TestControllerTest {
 
     }
 
+
+    @Test
+    public void testWrapper() throws Exception {
+        mockMvc.perform(post("/test/dust")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("{\n" +
+                        "  \"intent\": {\n" +
+                        "    \"id\": \"knnslvbs3ylyn49xkv6yc0be\",\n" +
+                        "    \"name\": \"블록 이름\"\n" +
+                        "  },\n" +
+                        "  \"userRequest\": {\n" +
+                        "    \"timezone\": \"Asia/Seoul\",\n" +
+                        "    \"params\": {\n" +
+                        "      \"ignoreMe\": \"true\"\n" +
+                        "    },\n" +
+                        "    \"block\": {\n" +
+                        "      \"id\": \"knnslvbs3ylyn49xkv6yc0be\",\n" +
+                        "      \"name\": \"블록 이름\"\n" +
+                        "    },\n" +
+                        "    \"utterance\": \"발화 내용\",\n" +
+                        "    \"lang\": null,\n" +
+                        "    \"user\": {\n" +
+                        "      \"id\": \"658047\",\n" +
+                        "      \"type\": \"accountId\",\n" +
+                        "      \"properties\": {}\n" +
+                        "    }\n" +
+                        "  },\n" +
+                        "  \"bot\": {\n" +
+                        "    \"id\": \"5c625f78384c553f07cd2d47\",\n" +
+                        "    \"name\": \"봇 이름\"\n" +
+                        "  },\n" +
+                        "  \"action\": {\n" +
+                        "    \"name\": \"h044di1bkp\",\n" +
+                        "    \"clientExtra\": null,\n" +
+                        "    \"params\": {\n" +
+                        "      \"hello\": \"hello\"\n" +
+                        "    },\n" +
+                        "    \"id\": \"y0gl2dtqrlnhbisgnyfip5ht\",\n" +
+                        "    \"detailParams\": {\n" +
+                        "      \"hello\": {\n" +
+                        "        \"origin\": \"hello\",\n" +
+                        "        \"value\": \"hello\",\n" +
+                        "        \"groupName\": \"\"\n" +
+                        "      }\n" +
+                        "    }\n" +
+                        "  }\n" +
+                        "}"))
+                .andDo(print());
+
+    }
+
     @Test
     public void testRequestCheck() throws Exception {
         mockMvc.perform(post("/test/payload")

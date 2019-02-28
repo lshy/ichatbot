@@ -4,10 +4,7 @@ package com.kakao.ichatbot.response.componentType;
 import com.kakao.ichatbot.response.componentType.common.Button;
 import com.kakao.ichatbot.response.componentType.common.Thumbnail;
 import com.kakao.ichatbot.response.componentType.exception.IllegalStringLengthException;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
 
 import java.util.List;
 
@@ -90,6 +87,19 @@ public class CommerceCard{
         private void assertButtons(List<Button> buttons){
             if(buttons.size() > MAX_BUTTON_COUNT || buttons.size() < MIN_BUTTON_COUNT)
                 throw new IllegalArgumentException("버튼 숫자 제한을 넘음");
+        }
+
+        @Getter
+        @NoArgsConstructor
+        public static class Adapter{
+
+            private CommerceCard commerceCard;
+
+            public static Adapter of(CommerceCard commerceCard){
+                Adapter instance = new Adapter();
+                instance.commerceCard = commerceCard;
+                return instance;
+            }
         }
     }
 

@@ -36,18 +36,6 @@ public class ComponentTypeTest {
     }
 
     @Test
-    public void CarouselTest() {
-        List<ISkillCardComponent> list = Stream.of(
-                BasicCard.builder().build()
-        ).collect(Collectors.toList());
-
-        Carousel.builder()
-                .type("Carousel")
-                .items(list)
-                .build();
-    }
-
-    @Test
     public void ListCardTest(){
         ListItem listItem = ListItem.builder().title("listItem1").build();
 
