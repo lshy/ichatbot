@@ -19,12 +19,11 @@ public class SkillResponse {
 
     // Any type U Want to send then use this data
     private Object data;
-
+  
     public static class SkillResponseBuilder{
         public SkillResponseBuilder version(){
             this.version = SKILL_VERSION;
             return this;
         }
     }
-
 }
