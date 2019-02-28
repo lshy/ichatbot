@@ -24,6 +24,8 @@ public class HttpConfiguration {
     @Value("${restTemplate.httpClient.maxConnPerRoute}")
     private int MAX_CONN_PER_ROUTE;
 
+    // not recommended
+    @Autowired
     private MappingJackson2HttpMessageConverter2 converter;
 
     @Bean
