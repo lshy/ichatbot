@@ -13,7 +13,7 @@ import java.util.List;
 
 @Data
 @Builder
-public class CommerceCard implements ISkillCardComponent {
+public class CommerceCard{
 
     public static final int MAX_DESCRIPTION_LENGTH = 76;
     public static final int MAX_THUMBNAIL_COUNT = 1;

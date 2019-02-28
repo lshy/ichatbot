@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Builder
-public class Carousel implements ISkillComponent {
+public class Carousel{
 
     /*
     케로셀 개수

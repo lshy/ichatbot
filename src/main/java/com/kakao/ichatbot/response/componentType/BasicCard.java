@@ -12,7 +12,7 @@ import java.util.Optional;
 
 @Data
 @Builder
-public class BasicCard implements ISkillCardComponent {
+public class BasicCard{
 
     public static final int MAX_TITLE_LENGTH = 20;
     public static final int MAX_DESCRIPTION_LENGTH = 230;

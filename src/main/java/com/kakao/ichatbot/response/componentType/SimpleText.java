@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NonNull;
 
 @Data
-public class SimpleText implements ISkillComponent {
+public class SimpleText{
 
     public static final int MAX_TEXT_COUNT = 400;
 
