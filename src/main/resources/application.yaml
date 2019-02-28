@@ -1,0 +1,14 @@
+restTemplate:
+  factory:
+    readTimeout: 5000
+    connectTimeout: 3000
+  httpClient:
+    maxConnTotal: 100
+    maxConnPerRoute: 5
+
+setofurl:
+  weather:
+    dustwithlocation : http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty
+setofkeys:
+  weather :
+    dustwithlocation : TuQjQfgVIsgW0ILawyXq8M4zn3i1EgVqfG18hE%2FpDWv546FApGflo7T26df6O0AFp8FqR9OeXP%2FSHAcwCPgTjg%3D%3D
